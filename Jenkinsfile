@@ -16,7 +16,7 @@ node {
     tempstr = env.BUILD_VERSION.substring(6).toLowerCase()
     if (tempstr.endsWith('snapshot')) {
         //开发分支
-        env.CURRENT_BRANCH = 'dev'
+        env.CURRENT_BRANCH = 'master'
     } else if (tempstr.endsWith('release')) {
         //发布分支
         env.CURRENT_BRANCH = 'release'
