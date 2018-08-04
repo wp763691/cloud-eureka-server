@@ -6,7 +6,7 @@ env.CURRENT_WORKSPACE_DIR       = null
 
 node {
     def workspace = env.WORKSPACE
-    env.CURRENT_WORKSPACE_DIR = "${workspace}@script"
+    env.CURRENT_WORKSPACE_DIR = "${workspace}"
     echo env.CURRENT_WORKSPACE_DIR
 
     env.BUILD_VERSION = version()
