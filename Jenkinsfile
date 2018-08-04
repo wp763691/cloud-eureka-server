@@ -73,8 +73,8 @@ def version() {
 def failedNotification() {
     emailext(
             subject: "构建失败: Job '${env.JOB_NAME} 版本 [${env.BUILD_VERSION}]'",
-            from: "763691@163.com",
-            to: "763691@163.com",
+            from: "jiangliu.wang@synwing.com",
+            to: "jiangliu.wang@synwing.com",
             body: """<p>构建失败: Job '${env.JOB_NAME} 版本 [${env.BUILD_VERSION}]':</p>
                 <p>失败阶段: [${env.CURRENT_STAGE}]</p>
                 <p>失败异常: ${env.FAILED_REASON}]</p>
@@ -85,8 +85,8 @@ def failedNotification() {
 def successulNotification() {
     emailext(
             subject: "构建成功: Job '${env.JOB_NAME} 版本 [${env.BUILD_VERSION}]'",
-            from: "763691@163.com",
-            to: "763691@163.com",
+            from: "jiangliu.wang@synwing.com",
+            to: "jiangliu.wang@synwing.com",
             body: """<p>构建成功: Job '${env.JOB_NAME} 版本 [${env.BUILD_VERSION}]':</p>
                 <p>点击查看构建详情 "<a href="${env.BUILD_URL}/console">${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>"</p>"""
     )
@@ -95,8 +95,8 @@ def successulNotification() {
 def releassEnvSuccessulNotification() {
     emailext(
             subject: "构建成功: Job '${env.JOB_NAME} 版本 [${env.BUILD_VERSION}]'",
-            from: "763691@163.com",
-            to: "763691@163.com",
+            from: "jiangliu.wang@synwing.com",
+            to: "jiangliu.wang@synwing.com",
             body: """<p>构建成功: Job '${env.JOB_NAME} 版本 [${env.BUILD_VERSION}]':</p>
                 <p>点击查看构建详情 "<a href="${env.BUILD_URL}/console">${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>"</p>"""
     )
