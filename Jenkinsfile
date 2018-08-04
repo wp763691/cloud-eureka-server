@@ -37,7 +37,7 @@ node {
 
     stage('Compile') {
         try {
-            sh '#!/bin/bash -ilex mvn clean package'
+            sh 'mvn clean package'
         } catch (e) {
             env.CURRENT_STAGE = '编译代码'
             env.FAILED_REASON = e
