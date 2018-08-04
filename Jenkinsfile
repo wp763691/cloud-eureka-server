@@ -6,7 +6,7 @@ env.CURRENT_WORKSPACE_DIR       = null
 
 node {
     def workspace = env.WORKSPACE
-    env.CURRENT_WORKSPACE_DIR = "${workspace}"
+    env.CURRENT_WORKSPACE_DIR = "${workspace}@script"
     echo env.CURRENT_WORKSPACE_DIR
 
     env.BUILD_VERSION = version()
@@ -37,7 +37,7 @@ node {
 
     stage('Compile') {
         try {
-            sh 'mvn clean package'
+            sh '#!/bin/bash -ilex mvn clean package'
         } catch (e) {
             env.CURRENT_STAGE = '编译代码'
             env.FAILED_REASON = e
