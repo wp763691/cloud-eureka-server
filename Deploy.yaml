@@ -1,0 +1,40 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cloud-eureka-server
+  namespace: cloud
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      syn-app: cloud-eureka-server
+  template:
+    metadata:
+      labels:
+        syn-app: cloud-eureka-server
+    spec:
+      containers:
+      - name: cloud-eureka-server
+        image: 192.168.0.201:5000:5000/cloud_microservice/cloud-eureka-server:0.0.1-SNAPSHOT
+        ports:
+        - containerPort: 8000
+          protocol: TCP
+        env:
+        - name: DB_ZKSERVER_HOSTS
+          value: "192.168.2.236:2181,192.168.2.237:2181,192.168.2.238:2181"
+        - name: DB_ZKSERVER_NODE
+          value: "cloud"
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cloud-eureka-server
+  namespace: cloud
+spec:
+  ports:
+  - port: 8000
+    targetPort: 8000
+  selector:
+    syn-app: cloud-eureka-server
